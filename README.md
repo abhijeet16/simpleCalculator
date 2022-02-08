@@ -1,7 +1,7 @@
 # Simple Calculator
 This is a simple calculator that can add, subtract and multiply values in a set of registers.
 
-The syntax syntax for allowed operations are below:
+The syntax for allowed operations are below:
 1. `<register> <operation> <value>`
 2. `print <register>`
 3. `quit`
