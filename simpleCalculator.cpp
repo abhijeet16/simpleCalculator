@@ -39,6 +39,18 @@ bool check_alnum(const string& s)
     return true;
 }
 
+// A function to split the command received into words
+vector<string> split_vector(string s)
+{
+    vector<string> input_v;
+    stringstream inp_ss(s);
+    string inp_s;
+    while (inp_ss >> inp_s) {
+        input_v.push_back(inp_s);
+    }
+    return input_v;
+}
+
 // We check all the three commands possible.
 bool check_command(const vector<string>& input_v)
 {
@@ -71,7 +83,7 @@ bool check_command(const vector<string>& input_v)
     if (input_v.size() == 3) {
         string reg1 = input_v[0];
         string op = input_v[1];
-        reg2 = input_v[2];
+        string reg2 = input_v[2];
 
         // Check the operand spelling and case insensitiveness
         if (op != "add" && op != "subtract" && op != "multiply" && op != "ADD" && op != "SUBTRACT" && op != "MULTIPLY") {
@@ -104,7 +116,6 @@ bool check_command(const vector<string>& input_v)
 
 int main(int argc, char* argv[])
 {
-
     bool check_input_f = false;
     ifstream input_f; // input file stream
     istream* input_s; // handle input stream
@@ -125,4 +136,41 @@ int main(int argc, char* argv[])
         cerr << "Invalid command! More than two arguments found!" << endl;
         return 1;
     }
+
+    string input_l;
+    vector<command> all_cmd; // Collect all command
+    set<string> registers;
+
+    // Handle each line of input
+    while (getline(*input_s, input_l)) {
+        vector<string> input_v = split_vector(input_l);
+
+        if (!check_command(input_v))
+            continue;
+
+        if (input_v.size() == 1) {
+            return 0;
+        }
+        if (input_v.size() == 2) {
+            string reg = input_v[1];
+
+            if (!registers.count(reg)) {
+                cerr << "Register not found!" << endl;
+            }
+        }
+        if (input_v.size() == 3) {
+            string reg1 = input_v[0];
+            string reg2 = input_v[2];
+            registers.insert(reg1);
+            registers.insert(reg2);
+
+            all_cmd.push_back(command(input_v)); // push a valid command
+        }
+    }
+
+    if (check_input_f)
+        input_f.close(); // close the file opened
+
+    return 0;
+
 }
