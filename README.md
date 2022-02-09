@@ -6,6 +6,21 @@ The syntax for allowed operations are below:
 2. `print <register>`
 3. `quit`
 
+### Sample Command
+A add 2
+A add 3
+print A
+
+B add 5
+B subtract 2
+print B
+
+`Output`
+5
+3
+
+`quit` or `QUIT` terminates the program
+
 ### How to set up (Windows)
 Requirements: The GNU C++ compiler(g++) is needed. <br/>
 To install C++ compiler:
