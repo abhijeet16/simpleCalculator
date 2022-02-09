@@ -7,17 +7,16 @@ The syntax for allowed operations are below:
 3. `quit`
 
 ### Sample Command
-A add 2
-A add 3
-print A
+A add 2 <br/>
+A add 3 <br/>
+print A <br/>
+B add 5 <br/>
+B subtract 2 <br/>
+print B <br/>
 
-B add 5
-B subtract 2
-print B
-
-`Output`
-5
-3
+`Output` <br/>
+5 <br/>
+3 <br/>
 
 `quit` or `QUIT` terminates the program
 
