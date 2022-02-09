@@ -7,8 +7,7 @@ The syntax for allowed operations are below:
 3. `quit`
 
 ### How to set up (Windows)
-Requirements:
-The GNU C++ compiler(g++) is needed.
+Requirements: The GNU C++ compiler(g++) is needed. <br/>
 To install C++ compiler:
 1. Please visit "https://sourceforge.net/projects/mingw/", download and install.
 2. It installs in C: drive (by default).
