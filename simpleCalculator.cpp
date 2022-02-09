@@ -17,6 +17,91 @@ struct command {
     }
 };
 
+
+// Two condition to check from input
+// 1. If input has any integer
+bool check_int_input(const string& s)
+{
+    if (!isdigit(s[0]))
+        return false;
+    for (auto& ch : s.substr(1, s.size() - 1))
+        if (!isdigit(ch))
+            return false;
+    return true;
+}
+
+// 2. If the register variable is alphanumeric or not
+bool check_alnum(const string& s)
+{ 
+    for (auto& ch : s)
+        if (!isalnum(ch))
+            return false;
+    return true;
+}
+
+// We check all the three commands possible.
+bool check_command(const vector<string>& input_v)
+{
+    // If we have just one argument, it should be "quit" or "QUIT"
+    if (input_v.size() == 1) {
+        if (input_v[0] == "QUIT" || input_v[0] == "quit")
+            return true;
+        cerr << "Invalid command!" << endl;
+        return false;
+    }
+
+    // If we have two arguments, it should print <register>
+    if (input_v.size() == 2) {
+        if (input_v[0] != "print") {
+            cerr << "Invalid command!" << endl;
+            return false;
+        }
+        if (!check_alnum(input_v[1])) {
+            cerr << "Invalid register name! Only alphanumeric register name allowed" << endl;
+            return false;
+        }
+        if (check_int_input(input_v[1])) {
+            cerr << "Invalid register name! Only digits in register name is not allowed" << endl;
+            return false;
+        }
+        return true;
+    }
+
+    // If we have three arguments, it should 
+    if (input_v.size() == 3) {
+        string reg1 = input_v[0];
+        string op = input_v[1];
+        reg2 = input_v[2];
+
+        // Check the operand spelling and case insensitiveness
+        if (op != "add" && op != "subtract" && op != "multiply" && op != "ADD" && op != "SUBTRACT" && op != "MULTIPLY") {
+            cerr << "Invalid command!" << endl;
+            return false;
+        }
+        if (!check_alnum(reg1)) {
+            cerr << "Invalid register name! Only alphanumeric register name allowed" << endl;
+            return false;
+        }
+        if (check_int_input(reg1)) {
+            cerr << "Invalid register name! Only digits in register name is not allowed" << endl;
+            return false;
+        }
+        if (!check_alnum(reg2)) {
+            if (!check_int_input(reg2)) {
+                cerr << "Invalid register name!" << endl;
+                return false;
+            }
+            else {
+                cerr << "Invalid value entered." << endl;
+                return false;
+            }
+        }
+        return true;
+    }
+    cerr << "Invalid command!" << endl;
+    return false;
+}
+
 int main(int argc, char* argv[])
 {
 
