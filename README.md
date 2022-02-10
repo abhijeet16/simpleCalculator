@@ -37,6 +37,7 @@ Navigate to the repository folder with `simpleCalculator.cpp` file and launch co
 ```
 g++ -std=gnu++11 simpleCalculator.cpp -o simpleCalculator.exe
 ```
+The command above will help in generating the executable file. To run this file, please follow the instructions below.
 
 ### How to run
 There are two ways to run.
