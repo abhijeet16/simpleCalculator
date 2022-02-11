@@ -22,7 +22,7 @@ struct command {
 // 1. If input has any integer
 bool check_int_input(const string& s)
 {
-    if (!isdigit(s[0]))
+    if (!isdigit(s[0]) && s[0] != '-')
         return false;
     for (auto& ch : s.substr(1, s.size() - 1))
         if (!isdigit(ch))
@@ -104,7 +104,7 @@ bool check_command(const vector<string>& input_v)
                 return false;
             }
             else {
-                cerr << "Invalid value entered." << endl;
+                cerr << "Please enter a positive value." << endl;
                 return false;
             }
         }
@@ -172,5 +172,5 @@ int main(int argc, char* argv[])
         input_f.close(); // close the file opened
 
     return 0;
-
+    
 }
