@@ -166,6 +166,7 @@ int main(int argc, char* argv[])
         return 1;
     }
 
+    map<string, long long> reg_map; // Register Map
     string input_l;
     vector<command> all_cmd; // Collect all command
     set<string> registers;
@@ -185,6 +186,11 @@ int main(int argc, char* argv[])
 
             if (!registers.count(reg)) {
                 cerr << "Register not found!" << endl;
+            }
+            else {
+                reg_map.clear();
+                // Calculates only when print <register> command is found.
+                cout << calculate(reg, all_cmd, reg_map) << endl;
             }
         }
         if (input_v.size() == 3) {
