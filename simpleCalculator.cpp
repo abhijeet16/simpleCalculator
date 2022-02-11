@@ -143,8 +143,17 @@ long long calculate(const string& reg_var, const vector<command>& all_cmd, map<s
     return reg_map[reg_var] = output;
 }
 
+void welcomeMessage(){
+    cout << "---------------------------------" << endl;
+    cout << "Welcome to the simple calculator!";
+    cout << endl << "---------------------------------" << endl << endl;
+}
+
 int main(int argc, char* argv[])
 {
+    // print welcome message
+    welcomeMessage();
+
     bool check_input_f = false;
     ifstream input_f; // input file stream
     istream* input_s; // handle input stream
