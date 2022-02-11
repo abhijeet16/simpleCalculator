@@ -69,11 +69,11 @@ bool check_command(const vector<string>& input_v)
             return false;
         }
         if (!check_alnum(input_v[1])) {
-            cerr << "Invalid register name! Only alphanumeric register name allowed" << endl;
+            cerr << "Invalid register name! Only alphanumeric register name allowed!" << endl;
             return false;
         }
         if (check_int_input(input_v[1])) {
-            cerr << "Invalid register name! Only digits in register name is not allowed" << endl;
+            cerr << "Invalid register name! Only digits in register name is not allowed!" << endl;
             return false;
         }
         return true;
@@ -87,15 +87,15 @@ bool check_command(const vector<string>& input_v)
 
         // Check the operand spelling and case insensitiveness
         if (op != "add" && op != "subtract" && op != "multiply" && op != "ADD" && op != "SUBTRACT" && op != "MULTIPLY") {
-            cerr << "Invalid command!" << endl;
+            cerr << "Invalid command! Please check the operation!" << endl;
             return false;
         }
         if (!check_alnum(reg1)) {
-            cerr << "Invalid register name! Only alphanumeric register name allowed" << endl;
+            cerr << "Invalid register name! Only alphanumeric register name allowed!" << endl;
             return false;
         }
         if (check_int_input(reg1)) {
-            cerr << "Invalid register name! Only digits in register name is not allowed" << endl;
+            cerr << "Invalid register name! Only digits in register name is not allowed!" << endl;
             return false;
         }
         if (!check_alnum(reg2)) {
@@ -104,12 +104,12 @@ bool check_command(const vector<string>& input_v)
                 return false;
             }
             else {
-                cerr << "Please enter a positive value." << endl;
+                cerr << "Please enter a positive value!" << endl;
                 return false;
             }
         }
         if (reg1 == reg2) {
-            cerr << "Invalid command! Operation on same register not possible." << endl;
+            cerr << "Invalid command! Operation on same register not possible!" << endl;
             return false;
         }
         return true;
@@ -155,7 +155,7 @@ int main(int argc, char* argv[])
     else if (argc == 2) { // Command with exe and file path
         input_f.open(argv[1]);
         if (!input_f) {
-            cerr << "Oopss!!! Input file not found" << endl;
+            cerr << "Input file not found!" << endl;
             return 1;
         }
         input_s = &input_f;
