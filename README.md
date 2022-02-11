@@ -53,7 +53,8 @@ To terminate the program `quit` or `QUIT` command is needed.
 simpleCalculator.exe <filePath>
 ```
 Input files are present in Inputs folder.
-The program in this case terminates automatically after execution.
+The program in this case terminates automatically after execution. <br\>
+Input file need not have `quit` or `QUIT` command.
 
 ### About Calculator
 * This simple calculator is case insensitive with it's operands. `A add 2` and `A ADD 2` both are valid commands.
