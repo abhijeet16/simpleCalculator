@@ -118,6 +118,31 @@ bool check_command(const vector<string>& input_v)
     return false;
 }
 
+// Function to calculate and return output when print is called
+long long calculate(const string& reg_var, const vector<command>& all_cmd, map<string, long long>& reg_map)
+{
+    if (check_int_input(reg_var))
+        return stoi(reg_var);
+
+    if (reg_map.count(reg_var))
+        return reg_map[reg_var];
+
+    long long output = 0;
+    
+    for (auto& cmd : all_cmd) {
+        if (cmd.register1 != reg_var)
+            continue;
+        if (cmd.operand == "add" || cmd.operand == "ADD")
+            output = output + calculate(cmd.register2, all_cmd, reg_map);
+        if (cmd.operand == "subtract" || cmd.operand == "SUBTRACT")
+            output = output - calculate(cmd.register2, all_cmd, reg_map);
+        if (cmd.operand == "multiply" || cmd.operand == "MULTIPLY")
+            output = output * calculate(cmd.register2, all_cmd, reg_map);
+    }
+
+    return reg_map[reg_var] = output;
+}
+
 int main(int argc, char* argv[])
 {
     bool check_input_f = false;
