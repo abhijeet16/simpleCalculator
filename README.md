@@ -58,8 +58,7 @@ Input file need not have `quit` or `QUIT` command.
 
 ### About Calculator
 * This simple calculator is case insensitive with it's operands. `A add 2` and `A ADD 2` both are valid commands.
-* It doen't allow to keep a full numeric register name.
-`12 multiply 3`, is not a valid command.
+* It doen't allow to keep a full numeric register name. `12 multiply 3`, is not a valid command.
 * It doesn't allow to perform operation on the same register. `B add B` is not a valid command.
 
 ### Possible Enhancements
