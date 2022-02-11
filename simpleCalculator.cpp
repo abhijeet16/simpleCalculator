@@ -109,7 +109,7 @@ bool check_command(const vector<string>& input_v)
             }
         }
         if (reg1 == reg2) {
-            cerr << "Invalid command! Operation on same register not possible!" << endl;
+            cerr << "Invalid command! Operation on same register is not allowed!" << endl;
             return false;
         }
         return true;
