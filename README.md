@@ -8,7 +8,7 @@ The syntax for allowed operations are below:
 
 ### Sample Command
 A add 2 <br/>
-A add 3 <br/>
+A ADD 3 <br/>
 print A <br/>
 B add 5 <br/>
 B subtract 2 <br/>
@@ -54,3 +54,14 @@ simpleCalculator.exe <filePath>
 ```
 Input files are present in Inputs folder.
 The program in this case terminates automatically after execution.
+
+### About Calculator
+* This simple calculator is case insensitive with it's operands. `A add 2` and `A ADD 2` both are valid commands.
+* It doen't allow to keep a full numeric register name.
+`A multiply 123`, here `123` will not be treated as a register name.
+* It doesn't allow to perform operation on the same register. `B add B` is not a valid command.
+
+### Possible Enhancements
+* Check circular dependency.
+* Allow operations with negative integers.
+ 
