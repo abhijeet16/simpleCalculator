@@ -25,7 +25,7 @@ Requirements: The GNU C++ compiler(g++) is needed. <br/>
 To install C++ compiler:
 1. Please visit "https://sourceforge.net/projects/mingw/", download and install.
 2. It installs in C: drive (by default).
-3. Add "C:\minGW\bin" to system variable
+3. Add "C:\minGW\bin" to system variable (if installed in C drive, else check location and add).
 4. To confirm, if installed, check the below command in command prompt.
 
 ```
